@@ -47,26 +47,26 @@ CREATE FUNCTION numbers (num INT)
 RETURNS VARCHAR(50)
 DETERMINISTIC 
 BEGIN 
-	DECLARE num1 INT DEFAULT 0; 
+    DECLARE num1 INT DEFAULT 0; 
     DECLARE result VARCHAR(50) DEFAULT num;
     IF num % 2 != 0 THEN 
-		SET num = num - 1;
+	SET num = num - 1;
         SET result = num;
         WHILE num > 0 DO
-			SET num1 = num - 2;
+	    SET num1 = num - 2;
             SET num = num - 2;
-			SET result = concat(result, ' ', num1);
-		END WHILE;
+	    SET result = concat(result, ' ', num1);
+	END WHILE;
         RETURN result;
-	ELSE
+    ELSE
         WHILE num > 0 DO
-			SET num1 = num - 2;
+	    SET num1 = num - 2;
             SET num = num - 2;
-			SET result = concat(result, ' ', num1);
-		END WHILE;
+	    SET result = concat(result, ' ', num1);
+	END WHILE;
         RETURN result;
-	END IF;
+END IF;
 END //
 DELIMITER ;
 
-SELECT numbers(21);
+SELECT numbers(10);
